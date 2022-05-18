@@ -62,10 +62,10 @@ def videoCapture(videoPath, forceJpg=False):
         print("视频无法打开，")
         return
     # 获取视频基本信息
-    fps = int(cap.get(cv2.CAP_PROP_FPS))  # 帧率
-    frameWidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))  # 宽度
-    frameHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))  # 高度
-    frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))  # 总图像帧数
+    fps = cap.get(cv2.CAP_PROP_FPS)  # 帧率
+    frameWidth = cap.get(cv2.CAP_PROP_FRAME_WIDTH)  # 宽度
+    frameHeight = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)  # 高度
+    frameCount = cap.get(cv2.CAP_PROP_FRAME_COUNT)  # 总图像帧数
     durationSec = round(frameCount / fps)  # 持续时间，秒
     duration = str(datetime.timedelta(seconds=durationSec))  # 持续时间，时分秒
     videoSize = os.path.getsize(videoPath)  # 文件大小，Byte
